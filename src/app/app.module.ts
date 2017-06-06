@@ -1,5 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent }  from './app.component';
 
@@ -17,8 +18,13 @@ import{ GroupListComponent } from './groups/components/group-list.component';
 import { ClientService} from './clients/services/client.service';
 import { GroupService} from './groups/services/group.service';
 
+
+
 @NgModule({
-  imports:      [ BrowserModule ],
+  imports:      [
+    BrowserModule,
+    AppRoutingModule,
+  ],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -29,11 +35,11 @@ import { GroupService} from './groups/services/group.service';
     AddGroupComponent,
     EditGroupComponent,
     GroupListComponent,
-     ],
+  ],
     providers: [
       ClientService,
       GroupService
-    ],
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

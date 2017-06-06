@@ -33,7 +33,7 @@ import { GroupService} from './groups/services/group.service';
     providers: [
       ClientService,
       GroupService
-    ]
+    ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

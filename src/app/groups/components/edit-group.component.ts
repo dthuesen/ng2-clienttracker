@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-group',
+  selector: 'edit-group',
   template: `
-  <h1>EditGroupComponent</h1>
+  <h1>Edit Group</h1>
   `,
 })
 export class EditGroupComponent {

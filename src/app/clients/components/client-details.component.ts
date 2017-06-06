@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-client-details',
+  selector: 'client-details',
   template: `
-  <h1>ClientDetailsComponent</h1>
+  <h1>Client Details</h1>
   `,
 })
 export class ClientDetailsComponent {

@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-group-list',
+  selector: 'group-list',
   template: `
-  <h1>GroupListComponent</h1>
+  <h1>Group List</h1>
   `,
 })
 export class GroupListComponent {

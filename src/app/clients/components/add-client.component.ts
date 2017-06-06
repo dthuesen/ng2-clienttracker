@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-add-client',
+  selector: 'add-client',
   template: `
-  <h1>AddClientComponent</h1>
+  <h1>Add Client</h1>
   `,
 })
 export class AddClientComponent {

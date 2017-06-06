@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-client',
+  selector: 'edit-client',
   template: `
-  <h1>EditClientComponent</h1>
+  <h1>Edit Client</h1>
   `,
 })
 export class EditClientComponent {

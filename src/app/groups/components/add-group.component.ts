@@ -2,9 +2,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-add-group',
+  selector: 'add-group',
   template: `
-  <h1>AddGroupComponent</h1>
+  <h1>Add Group</h1>
   `,
 })
 export class AddGroupComponent {

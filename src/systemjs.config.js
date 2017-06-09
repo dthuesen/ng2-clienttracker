@@ -4,6 +4,7 @@
  */
 (function (global) {
   System.config({
+    transpiler: 'typescript',
     paths: {
       // paths serve as alias
       'npm:': 'node_modules/'
@@ -25,10 +26,18 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+      
+      // angularfire2
+      'angularfire2':               'npm:angularfire2',
+      'firebase':                   'npm:firebase',
+      'typescript':                 'npm:typescript/lib/typescript.js',
+      'promise-polyfill':           'npm:promise-polyfill/promise.js',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
+      
+      /**  OLD VERSION   */
       app: {
         defaultExtension: 'js',
         meta: {
@@ -37,7 +46,17 @@
           }
         }
       },
+      
       rxjs: {
+        defaultExtension: 'js'
+      },
+      angularfire2: {
+        // main: './bundles/angularFire2.umd.js',
+        main: 'angularfire2.js',
+        defaultExtension: 'js'
+      },
+      firebase: {
+        main: './firebase.js',
         defaultExtension: 'js'
       }
     }

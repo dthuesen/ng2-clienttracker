@@ -1,6 +1,14 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+// AngularFire2 4.0
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 import { AppComponent }  from './app.component';
 
@@ -18,21 +26,28 @@ import{ GroupListComponent } from './groups/components/group-list.component';
 import { ClientService} from './clients/services/client.service';
 import { GroupService} from './groups/services/group.service';
 
+import { environment } from '../environments/environment.js';
+
 
 
 @NgModule({
   imports:      [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'my-app'),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   declarations: [
-    AppComponent,
-    DashboardComponent,
-    ClientListComponent,
-    ClientDetailsComponent,
     AddClientComponent,
-    EditClientComponent,
     AddGroupComponent,
+    AppComponent,
+    ClientDetailsComponent,
+    ClientListComponent,
+    DashboardComponent,
+    EditClientComponent,
     EditGroupComponent,
     GroupListComponent,
   ],

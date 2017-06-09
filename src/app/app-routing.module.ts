@@ -14,15 +14,17 @@ import{ GroupListComponent } from './groups/components/group-list.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'clients', component: ClientListComponent },
-  { path: 'client', component: ClientDetailsComponent },
-  { path: 'addclient', component: AddClientComponent },
-  { path: 'editclient', component: EditClientComponent },
-  { path: 'groups', component: GroupListComponent },
-  { path: 'addgroup', component: AddGroupComponent },
-  { path: 'editgroup', component: EditGroupComponent },
+  { path: '',                   redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'home',               redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard',          component: DashboardComponent },
+  { path: 'clients',            component: ClientListComponent },
+  { path: 'groups',             component: GroupListComponent },
+  { path: 'client/add',         component: AddClientComponent },
+  { path: 'group/add',          component: AddGroupComponent },
+  { path: 'client/details/:id', component: ClientDetailsComponent },
+  { path: 'client/edit/:id',    component: EditClientComponent },
+  { path: 'group/edit/:id',     component: EditGroupComponent },
+  { path: '**',                 redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({

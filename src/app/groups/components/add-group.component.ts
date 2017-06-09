@@ -1,10 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GroupService } from '../services/group.service';
-
-import { AngularFireDatabase } from 'angularfire2/database';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'add-group',
@@ -21,12 +19,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
           <input type="text" 
                  class="w3-input" 
                  placeholder="Enter a name for the new group (min. 3 characters)" 
-                 formControlName="addGroup">
+                 formControlName="addGroup"
+                 #addGroup>
           <div style="color:red" 
             *ngIf="!addGroupForm.valid && (addGroupForm.dirty || addGroupForm.touched || addGroupForm.submitted)">
             
-            <p *ngIf="addGroupForm.value.addGroup.length > 2">
-                No special characters allowed!
+            <p *ngIf="addGroupForm.value.addGroup?.length > 2">
+                Minimum 3 characters and no special characters or trailing spaces allowed!
             </p>
           </div>
         </div>
@@ -41,10 +40,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
       
     </div>
   
-  
   `,
 })
-export class AddGroupComponent implements OnInit {
+export class AddGroupComponent implements AfterViewInit, OnInit {
+
+  @ViewChild("addGroup")
+  private _inputElement: ElementRef;
 
   addGroupForm: FormGroup;
 
@@ -53,24 +54,27 @@ export class AddGroupComponent implements OnInit {
   constructor(
     private fbuilder: FormBuilder,
     private _groupService: GroupService,
-    private db: AngularFireDatabase
+    private router: Router,
+    private elementRef: ElementRef,
   ) {}
 
+  ngAfterViewInit() {
+    this._inputElement.nativeElement.focus();
+  }
+
   ngOnInit() {
+    const REGEX = '[-a-zäüößÄÖÜA-Z0-9~]+[" "]?[-a-zäüößÄÖÜA-Z0-9~]+[" "]?[-a-zäüößÄÖÜA-Z0-9~]+?';
+    // validate form data
     this.addGroupForm = this.fbuilder.group({
-      addGroup: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[-a-zäüößÄÖÜA-Z0-9~]+')]]
+      addGroup: ['', [Validators.required, Validators.minLength(3), Validators.pattern(REGEX)]],
     });
   }
 
   onAddGroup(event: any, valid: boolean ) {
-    console.log('event: ', event);
-    console.log('valid: ', valid);
-    console.log(this.addGroupForm.value);
-    console.log('length: ', this.addGroupForm.value.addGroup.length);
-    console.log('Group name in onAddGroup(): ', this.addGroupForm.value.addGroup);
-    console.log('this.newGroup: ', this.newGroup);
-
+    // call group service with current group name from form
+    this.newGroup = this.addGroupForm.value.addGroup;
     this._groupService.addGroup(this.newGroup);
+    this.router.navigateByUrl('/groups');
   }
 
 }

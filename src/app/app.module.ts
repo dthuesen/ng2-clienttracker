@@ -53,7 +53,7 @@ import { environment } from '../environments/environment.js';
   ],
     providers: [
       ClientService,
-      GroupService
+      GroupService,
   ],
   bootstrap:    [ AppComponent ]
 })

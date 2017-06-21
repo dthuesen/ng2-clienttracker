@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
       <a class="w3-bar-item w3-button w3-mobile w3-hover-yellow" routerLink="clients">Clients</a>
       <a class="w3-bar-item w3-button w3-mobile w3-hover-yellow" routerLink="groups">Groups</a>
     </div>
-    
     <div class="w3-container w3-padding">
         <div class="w3-row">
           <div class="w3-col m4 l3">

@@ -1,7 +1,5 @@
-import { Injectable, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import 'rxjs/add/operator/do';
-
 
 // Do not import from 'firebase' as you'd lose the tree shaking benefits
 import * as firebase from 'firebase/app';

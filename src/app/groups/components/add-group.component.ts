@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GroupService } from '../services/group.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   
     <div class="w3-card-4">
       <div class="w3-container w3-green">
-      <h2>Add Group</h2>
+        <h2>Add Group</h2>
       </div>
       
       <form novalidate [formGroup]="addGroupForm" (ngSubmit)="onAddGroup($event); addGroupForm.reset()" class="w3-padding-16" >
